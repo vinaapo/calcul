@@ -29,12 +29,14 @@ def calculate():
     massa = inp1.text()
     dia = inp2.text()
     kol = inp3.text()
-    dia = int(dia)
-    kol = int(kol)
-    massa = int(massa)
+    dia = float(dia)
+    kol = float(kol)
+    massa = float(massa)
     dlina = dia * 3.14
     nrg = massa * 10 * dlina * kol
-    text2 = QLabel('Результат:', nrg, 'Ватт')
+    nrg = round(nrg, 2)
+    result = 'Результат: '+str(nrg)+' Ватт'
+    text2 = QLabel(result)
     line6.addWidget(text2)
 
 line1 = QHBoxLayout()
@@ -60,6 +62,8 @@ line5.addWidget(button1)
 line6 = QHBoxLayout()
 mainline.addLayout(line6)
 line6.addWidget(text2)
+
+button1.clicked.connect(calculate)
 
 window.show()
 app.exec_()
