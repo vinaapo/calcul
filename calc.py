@@ -27,19 +27,20 @@ def raschet():
     dlina = dia * 3.14
     nrg = massa * 10 * dlina * kol
 
-mainline = QVBoxLayout()
-
 line1 = QHBoxLayout()
 mainline.addLayout(line1)
 
 line2 = QHBoxLayout()
 mainline.addLayout(line2)
+line2.addWidget(inp1)
 
 line3 = QHBoxLayout()
 mainline.addLayout(line3)
+line3.addWidget(inp2)
 
 line4 = QHBoxLayout()
 mainline.addLayout(line4)
+line4.addWidget(inp3)
 
 line5 = QHBoxLayout()
 mainline.addLayout(line5)
