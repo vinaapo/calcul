@@ -1,26 +1,35 @@
 from PyQt5.QtWidgets import *
+from PyQt5.QtGui import*
 
 app = QApplication([])
 window = QWidget()
-window.resize(500,500)
 window.setWindowTitle('Калькулятор хомячьей электроэнергетики')
+window.setStyleSheet('''QWidget{
+background: qlineargradient( x1:0 y1:0, x2:1 y2:0
+stop:0	rgb(72,209,204), stop:1 rgb(0,139,139)	
+);}''')
 
 mainline = QVBoxLayout()
 window.setLayout(mainline)
 
 inp1 = QLineEdit()
 inp1.setPlaceholderText('Введите массу хомяка в кг')
+inp1.setStyleSheet('''QLineEdit{font-size:16px; background:rgb(95,158,160);}''')
 
 inp2 = QLineEdit()
 inp2.setPlaceholderText('Введите диаметр колеса в м')
+inp2.setStyleSheet('''QLineEdit{font-size:16px; background:rgb(95,158,160);}''')
 
 inp3 = QLineEdit()
 inp3.setPlaceholderText('Введите количество хомяков')
+inp3.setStyleSheet('''QLineEdit{font-size:16px; background:rgb(95,158,160);}''')
 
 text1 = QLabel('''Для подсчета итогового кооличества вырабатываемой энергии введите данные в полях. 
 P.s. результат считался по формуле N = mgS. (N - энергия, m - масса, g - ускорение, S - путь. Путь (S) = диаметр колеса * 3,14 (число ПИ)''')
+text1.setStyleSheet('''QLabel{font-size:14px;}''')
 
 button1 = QPushButton('Произвести расчёты')
+button1.setStyleSheet('''QPushButton{font-size:16px;background:rgb(102,205,170);}''')
 
 text2 = QLabel('Результат:')
 
@@ -38,6 +47,7 @@ def calculate():
     result = 'Результат: '+str(nrg)+' Ватт'
     text2 = QLabel(result)
     line6.addWidget(text2)
+
 
 line1 = QHBoxLayout()
 mainline.addLayout(line1)
@@ -67,3 +77,4 @@ button1.clicked.connect(calculate)
 
 window.show()
 app.exec_()
+
